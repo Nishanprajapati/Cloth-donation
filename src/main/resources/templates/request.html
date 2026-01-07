@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Request Form</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="navbar">
+  <div class="nav-logo">
+    <img src="/logo.png" alt="SEWA Logo">
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="request.html">Requests</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+</div>
+
+<div class="form-wrapper">
+  <h2>Request Form</h2>
+
+  <!-- Success/Error message display -->
+  <div id="message" style="margin-bottom: 15px; padding: 10px; border-radius: 5px; display: none;"></div>
+
+  <form action="/request" method="POST">
+    <!-- Personal Information -->
+    <div class="form-section">
+      <h4>Personal Information</h4>
+
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" placeholder="Enter your address" required>
+
+      <label for="dropOffLocation">Drop off location:</label>
+      <input type="text" id="dropOffLocation" name="dropOffLocation" placeholder="Enter your dropoff address" required>
+
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="form-section">
+      <h4>Additional Information</h4>
+
+      <label for="season">Choose Season:</label>
+      <select id="season" name="season" required>
+        <option value="">Select season</option>
+        <option value="Spring">Spring</option>
+        <option value="Summer">Summer</option>
+        <option value="Winter">Winter</option>
+        <option value="Autumn">Autumn</option>
+      </select>
+
+      <div class="radio-group">
+        <label>Gender:</label>
+        <div class="radio-options">
+          <input type="radio" name="gender" value="Male" required> Male
+          <input type="radio" name="gender" value="Female" required> Female
+          <input type="radio" name="gender" value="Unisex" required> Unisex
+        </div>
+      </div>
+    </div>
+
+    <!-- Clothes Type -->
+    <div class="form-section">
+      <h4>Kind of Clothes You Want</h4>
+
+      <label for="clothesType">Type of Clothes:</label>
+      <input type="text" id="clothesType" name="clothesType" placeholder="E.g., Shirts, Pants, Jackets" required>
+    </div>
+
+    <!-- Quantity -->
+    <div class="form-section">
+      <h4>Enter the Quantity</h4>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter the number of items" min="1" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Request Donation</button>
+  </form>
+</div>
+  <p class="back-home">
+        <a href="index.html">Back to Home</a>
+    </p>
+
+<script>
+  // Check if redirected due to authentication failure or form errors
+  const urlParams = new URLSearchParams(window.location.search);
+  const error = urlParams.get('error');
+  const success = urlParams.get('success');
+  
+  const messageDiv = document.getElementById('message');
+  
+  if (error) {
+    messageDiv.textContent = error;
+    messageDiv.style.display = 'block';
+    messageDiv.style.backgroundColor = '#f8d7da';
+    messageDiv.style.color = '#721c24';
+    messageDiv.style.border = '1px solid #f5c6cb';
+  }
+  
+  if (success) {
+    messageDiv.textContent = success;
+    messageDiv.style.display = 'block';
+    messageDiv.style.backgroundColor = '#d4edda';
+    messageDiv.style.color = '#155724';
+    messageDiv.style.border = '1px solid #c3e6cb';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="form-container">
+  <div class="form-box">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/logo.png" alt="Website Logo">
+    </div>
+
+    <h2>SIGNUP</h2>
+
+    <!-- Error message display -->
+    <div id="errorMessage" style="color: red; margin-bottom: 10px; display: none;"></div>
+
+    <form action="/register" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+      <button type="submit">SIGNUP</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+
+    <p class="back-home">
+        <a href="index.html">Back to Home</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  // Check for error in URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const error = urlParams.get('error');
+  if (error) {
+    document.getElementById('errorMessage').textContent = error;
+    document.getElementById('errorMessage').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

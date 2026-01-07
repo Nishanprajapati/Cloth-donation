@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donate Clothes - SEWA</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-logo">
+    <img src="/logo.png" alt="SEWA Logo">
+  </div>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="request.html">Requests</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+</div>
+
+<div class="donation-form">
+    <h2>Clothes Donation Form</h2>
+    
+    <!-- Success/Error message display -->
+    <div id="message" style="margin-bottom: 15px; padding: 10px; border-radius: 5px; display: none;"></div>
+    
+    <form action="/donate" method="POST">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+        <label for="clothes-type">Type of Clothes:</label>
+        <select id="clothes-type" name="clothesType" required>
+            <option value="">Select type</option>
+            <option value="men">Men's Clothes</option>
+            <option value="women">Women's Clothes</option>
+            <option value="children">Children's Clothes</option>
+            <option value="mixed">Mixed</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Number of items" min="1" required>
+
+        <label for="notes">Additional Notes:</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Any additional information"></textarea>
+
+        <button type="submit">Donate Clothes</button>
+    </form>
+</div>
+
+<script>
+  // Check if redirected due to authentication failure or form errors
+  const urlParams = new URLSearchParams(window.location.search);
+  const error = urlParams.get('error');
+  const success = urlParams.get('success');
+  
+  const messageDiv = document.getElementById('message');
+  
+  if (error) {
+    messageDiv.textContent = error;
+    messageDiv.style.display = 'block';
+    messageDiv.style.backgroundColor = '#f8d7da';
+    messageDiv.style.color = '#721c24';
+    messageDiv.style.border = '1px solid #f5c6cb';
+  }
+  
+  if (success) {
+    messageDiv.textContent = success;
+    messageDiv.style.display = 'block';
+    messageDiv.style.backgroundColor = '#d4edda';
+    messageDiv.style.color = '#155724';
+    messageDiv.style.border = '1px solid #c3e6cb';
+  }
+</script>
+
+</body>
+</html>

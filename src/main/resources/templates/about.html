@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SEWA</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-logo">
+        <img src="/logo.png" alt="SEWA Logo">
+    </div>
+
+    <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/donate.html">Donate</a></li>
+        <li><a href="/request.html">Requests</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+    </ul>
+
+    <div class="auth-buttons">
+        <div th:if="${user != null}">
+            <span class="welcome-text" th:text="'Welcome, ' + ${user.username} + '!'"></span>
+            <a href="/logout">Logout</a>
+        </div>
+        <div th:if="${user == null}">
+            <a href="/login.html">Login</a>
+            <a href="/signup.html">Register</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="about-hero">
+    <div class="about-hero-content">
+        <h1>About SEWA</h1>
+        <p class="hero-subtitle">Connecting hearts through clothing donations</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="about-content">
+    <div class="about-container">
+        <!-- Why Choose SEWA Section -->
+        <div class="about-section">
+            <h2>Why Choose SEWA?</h2>
+            <div class="about-text">
+                <p>
+                    SEWA is a cloth donation website designed to facilitate the donation of gently used clothing to those in need. People can request help for clothes through this platform. This website also plays a vital role in developing a sense of volunteering and promoting good deeds.
+                </p>
+                <p>
+                    The core aim of "SEWA" is to simplify the donation process, making it accessible to anyone with the desire to help. This platform helps donors who want to donate clothing items but face challenges due to busy schedules and a lack of convenient and trustworthy donation channels.
+                </p>
+                <p>
+                    "SEWA" encourages more individuals to participate in charitable acts, amplifying the collective impact on society.
+                </p>
+            </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="mission-vision-grid">
+            <div class="mission-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h3>Our Mission</h3>
+                <p>
+                    To bridge the gap between those who have and those in need by creating a simple, accessible platform for clothing donations. We aim to make giving back to the community effortless and meaningful.
+                </p>
+            </div>
+
+            <div class="vision-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <h3>Our Vision</h3>
+                <p>
+                    To create a world where no one goes without basic clothing needs, and where every act of kindness, no matter how small, contributes to building a more compassionate society.
+                </p>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h4>Compassion</h4>
+                    <p>We believe in showing empathy and care for those in need, treating every individual with dignity and respect.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h4>Trust</h4>
+                    <p>Building a trustworthy platform where donors and recipients can connect safely and reliably.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4>Community</h4>
+                    <p>Fostering a sense of community where everyone can contribute to making a positive difference.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p>Continuously improving our platform to make the donation process easier and more accessible.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How We Work -->
+        <div class="how-we-work">
+            <h2>How We Work</h2>
+            <div class="work-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Donate</h4>
+                        <p>Donors can easily submit their clothing donations through our simple online form.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Connect</h4>
+                        <p>Our platform connects donors with those in need, ensuring donations reach the right people.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Impact</h4>
+                        <p>Every donation creates a positive impact, spreading warmth and hope to those who need it most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="about-cta">
+            <h2>Join Us in Making a Difference</h2>
+            <p>Be part of a community that believes in the power of giving and making a positive impact on society.</p>
+            <div class="cta-buttons">
+                <a href="/donate.html" class="btn-primary">Start Donating</a>
+                <a href="/request.html" class="btn-secondary">Request Help</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

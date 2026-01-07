@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - SEWA</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-logo">
+    <img src="/logo.png" alt="SEWA Logo">
+  </div>
+
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/donate.html">Donate</a></li>
+    <li><a href="/request.html">Requests</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+
+  <div class="auth-buttons">
+    <div th:if="${user != null}">
+      <span class="welcome-text" th:text="'Welcome, ' + ${user.username} + '!'"></span>
+      <a href="/logout">Logout</a>
+    </div>
+    <div th:if="${user == null}">
+      <a href="/login.html">Login</a>
+      <a href="/signup.html">Register</a>
+    </div>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="contact-header">
+    <h1>Get In Touch</h1>
+    <p class="contact-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+  </div>
+
+  <div class="contact-wrapper">
+    <!-- LEFT SIDE - Contact Information -->
+    <div class="left-info">
+      <h2>Contact Information</h2>
+      <p class="info-description">Feel free to reach out to us through any of these channels:</p>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="info-text">
+          <span class="label">Address</span>
+          <p>Chapacho,<br>Madhyapur Thimi-7, Bhaktapur, Nepal</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="info-text">
+          <span class="label">Phone</span>
+          <p>
+            <a href="tel:+9779762781646">+977 9762781646</a><br>
+            <a href="tel:+9779818948210">+977 9818948210</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="info-text">
+          <span class="label">Email</span>
+          <p><a href="mailto:prazrubil@gmail.com">prazrubil@gmail.com</a></p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="info-text">
+          <span class="label">Working Hours</span>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+        </div>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon" title="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="#" class="social-icon" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="social-icon" title="Twitter">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE - Contact Form -->
+    <div class="right-form">
+      <h2>Send Us a Message</h2>
+      <p class="form-description">Fill out the form below and we'll get back to you soon.</p>
+
+      <!-- Success/Error message display -->
+      <div id="message" class="form-message" style="display: none;"></div>
+
+      <form action="#" method="POST" id="contactForm">
+        <div class="form-group">
+          <label for="fullName">Full Name <span class="required">*</span></label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject <span class="required">*</span></label>
+          <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+        </div>
+
+        <div class="form-group">
+          <label for="messageText">Message <span class="required">*</span></label>
+          <textarea id="messageText" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<div class="map-section">
+  <h2>Find Us</h2>
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps?q=27.6813226,85.3860588&hl=en&z=15&output=embed"
+      width="100%" 
+      height="400" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  // Handle form submission messages
+  const urlParams = new URLSearchParams(window.location.search);
+  const success = urlParams.get('success');
+  const error = urlParams.get('error');
+  
+  const messageDiv = document.getElementById('message');
+  
+  if (success) {
+    messageDiv.textContent = success;
+    messageDiv.className = 'form-message success';
+    messageDiv.style.display = 'block';
+    // Clear form on success
+    document.getElementById('contactForm').reset();
+  }
+  
+  if (error) {
+    messageDiv.textContent = error;
+    messageDiv.className = 'form-message error';
+    messageDiv.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
